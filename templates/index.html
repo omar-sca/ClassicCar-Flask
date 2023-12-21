@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_calendar.css') }} ">
+
+
+<script src="{{ url_for('static', filename='js/bootstrap-5.1.1.bundle.min.js') }}"></script>
+
+
+<h1 class="primerParrafo " style="text-align: center; color:whitesmoke">Alquiler de Automóviles Clásicos</h1>
+
+<h5 class="" style="margin-left: 4vw; color:whitesmoke; font-weight: bold; padding-top: 3vh;">Modelos disponibles:</h5>
+
+<div id="productos"></div>
+
+<script>
+    function ocultar(objeto) {
+        objeto.getElementsByClassName('btnShowCalendar')[0].style.visibility = "hidden";
+        objeto.getElementsByClassName('carousel-indicators masDeUnaFoto')[0].style.visibility = "hidden";
+    }
+
+    function mostrar(objeto) {
+        objeto.getElementsByClassName('btnShowCalendar')[0].style.visibility = "visible";
+        objeto.getElementsByClassName('carousel-indicators masDeUnaFoto')[0].style.visibility = "visible";
+    }
+
+</script>
+
+<div id="contenedor">
+
+    {% for e in modelos %}
+    {% if e.cantidad_fotos != 1 %}
+    {% set claseExtra = 'masDeUnaFoto' %}
+    {% else %}
+    {% set claseExtra = 'unaSolaFoto' %}
+    {% endif %}
+
+    <div class="card text-center tarjeta" style="width: 23rem; height:30rem" onmouseover="mostrar(this)"
+         onmouseout="ocultar(this)">
+        <div class="card-header">
+            {{ e.nombre }}
+        </div>
+
+        <div class="card-body">
+            <div id="carouselModelo{{ e.id }}" class="carousel slide">
+                <div class="carousel-inner ">
+                    <div class="imagenes-div ">
+                        {% for j in range(0,e.cantidad_fotos) %}
+                        <div class="carousel-item{% if j==0 %} active{% endif %}">
+                            <img src="{{ url_for('static', filename='img/modelos/'+ e.nombre + '/' + j|string + '.png')}}"
+                                 class="d-block w-100"
+                                 alt="{{ e.nombre }}">
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="carousel-indicators {{ claseExtra }}">
+                    {% for j in range(0,e.cantidad_fotos) %}
+                    {% set aux = j+1 %}
+                    <button type="button" data-bs-target="#carouselModelo{{ e.id }}" data-bs-slide-to="{{ j }}"
+                            class="bg-secondary{% if j==0 %} active" aria-current="true{% endif %}"
+                            aria-label="Slide {{ aux }}"></button>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <h5 class="card-title"></h5>
+            <p class="card-text">
+                Año: {{ e.year }} <br>
+                Pais de Origen: {{ e.pais }}
+            </p>
+            <br>
+            <button type="button" class="btn btn-secondary showCalendar btnShowCalendar" id="{{e.id}}"
+                    value="{{ fecha_actual }}" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                +
+            </button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="calendar_conteiner" id="calendar_conteiner">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="{{ url_for('static', filename='js/jquery.3.6.0.js') }}"></script>
+<script src="{{ url_for('static', filename='js/calendar.js') }}"></script>
+
+{% endblock %}

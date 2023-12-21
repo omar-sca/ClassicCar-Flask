@@ -1,0 +1,124 @@
+
+
+.calendar {
+  position: relative;
+  width: 300px;
+  background-color: #fff;
+  box-sizing: border-box;
+  box-shadow: 0 5px 50px rgba(#000, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.calendar__picture {
+  position: relative;
+  height: 7vh;
+  color: #fff;
+  background: #262626 ;
+  text-shadow: 0 2px 2px rgba(#000, 0.2);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar__picture * {
+    display: inline;
+}
+
+.calendar__picture div {
+    padding: 0vh 1vh;
+}
+
+
+
+.calendar__date {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
+  grid-gap: 10px;
+  box-sizing: border-box;
+}
+
+.calendar__day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  font-weight: 600;
+  color: #262626;
+
+/*
+  &:nth-child(7) {
+    color: #ff685d;
+  }
+*/
+}
+
+.calendar__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  color: #262626;
+
+
+/*
+  &:nth-child(7n) {
+    color: #ff685d;
+    font-weight: 700;
+  }
+&:hover{}
+*/
+
+}
+
+.calendar__number--current {
+    background-color: #262626 ;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    border-color: #262626 ;
+    border-radius: calc(0.5rem - 1px);
+  }
+.tachadoDoble{
+  text-decoration: double line-through;
+        }
+
+        .ondulado{
+                text-decoration: wavy line-through;
+        }
+
+.tachadoSimple{
+        text-decoration: line-through;
+        }
+
+.tachadoGrosor{
+        color: rgb(255,255,255);
+        color: rgb(255,0,0);
+        /*text-decoration: line-through;
+        text-decoration-thickness: 3px;*/
+}
+
+.modal-calendar-header{
+        background-color: rgb(74, 83, 91);
+}
+
+.modal-calendar-header-title{
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: whitesmoke;
+}
+
+.modal-calendar-body{
+    background: rgb(192, 192, 192);
+    padding-bottom: 0;
+    border: 0.1rem solid rgb(192, 192, 192);
+}
+
+.modal-calendar-body p{
+    padding-top: 1rem;
+    padding-bottom: 0;
+    margin-bottom:0;
+    }

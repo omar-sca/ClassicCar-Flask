@@ -1,0 +1,309 @@
+    footer{
+        bottom: 0px;
+        text-align: center;
+    /*  background-image: linear-gradient(seagreen,darkgreen);*/
+        color: black;
+        color: whitesmoke;
+        padding-top: 2%;
+    }
+
+    footer a img{
+        width: 3vh;
+    }
+
+    body{
+        background-image:url(../img/fondos/Black-Road-Wallpaper-1920x1200_byn_9.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    header{
+    /*  background-image: linear-gradient(darkgreen,seagreen);*/
+        color: white;
+        text-align: center;
+    }
+
+    ul.navegacion {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        align-items: center;
+    }
+
+    ul.navegacion li {
+        float:left;
+    }
+    
+    ul.navegacion li a {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    ul.navegacion li a:hover:not(.active) {
+        background-color: darkgreen;
+    }
+    
+    ul.navegacion a.active {
+        color: white;
+        background-color: #04AA6D;
+    }
+    .primerParrafo{
+        margin-top: 15vh;
+    }
+
+    .carousel-inner{
+        position: relative;
+        padding: 0;
+        background: white;
+        box-sizing: border-box;
+        overflow: none;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .imagenes-div{
+    width: 100%;
+    padding-bottom: 75%;
+    background-color: rgb(192, 192, 192);
+   }
+
+   .imagenes-div .carousel-item img{
+       vertical-align: middle;
+   }
+
+   .carousel-item img{
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    }
+
+    .logo{
+        width: 12vw;
+        height: auto;
+    }
+
+    @media (max-width: 600px) {
+        .logo{
+            height: 8vh;
+            width: auto;
+            }
+    }
+
+    @media (max-width: 992px) {
+        .contenedorDeParrafoQuienesSomos{
+            margin-top: 2vh;
+            padding-bottom: 2vh;    
+        }
+        .esconderEnPantallaChica{
+            display: none;
+        }
+        .mostrarEnPantallaChica{
+            display: block;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .mostrarEnPantallaChica{
+            display: none;
+            background-color: gray;
+        }
+    }
+
+
+    /*  .bodyy{
+        background-image: linear-gradient(seagreen, lightgreen,lightgreen,seagreen);
+    }*/
+
+    .divContacto {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+
+    .divContacto iframe{
+        width: 80%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .divContacto p, .divContacto form, .divContacto h3, .divContacto h5, .divDescripQuienesSomos p{
+        color: whitesmoke;
+        width: 80%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-shadow: 0.1vw 0.1vh 0.1vw black;
+    }
+
+    .divContacto h3 {
+        padding-bottom: 3vh;
+    }
+
+    .contenedorDeParrafoQuienesSomos div p{
+        text-align: justify;
+    }
+
+    .carousel-indicators{
+        /*display: none;*/
+        position: relative;
+        visibility: hidden;
+    }
+
+    .carousel-indicators .active [type=button]{
+        border-radius: 5%;
+        background-color: black;
+    }
+
+    .divCeldaProducto{
+        padding-left: 3%;
+        padding-right: 3%;
+        margin-top: 1%;
+        margin-bottom: 1%;
+    }
+
+    #contenedor {
+        /*background-color: green;*/
+        padding: 1vh;
+        border: seagreen;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: center;
+    }
+
+    .tarjeta{
+        margin: 2%;
+        transition: box-shadow 150ms ease ;
+    }
+
+    .tarjeta:hover{
+        /*border-color: black;*/
+        box-shadow: 0 0 0.35rem 0.25rem seagreen;
+        box-shadow: 0 0 0.1rem 0.1rem rgb(200 ,200, 200);
+        box-shadow: 0 0 0.2rem 0.2rem black;
+        transition: box-shadow 150ms ease ;
+    }
+
+    .card-header{
+        font-size: 1.2rem;
+        font-weight: bold;
+        background-color: rgb(74, 83, 91);
+        color: whitesmoke;
+    }
+
+    .card{
+        border:none;
+    }
+
+    .card-body{
+        background-color: rgb(192, 192, 192);
+        border-bottom-left-radius: 1%;
+        border-bottom-right-radius: 1%;
+    }
+
+    .card-text{
+        margin-bottom: 0;
+    }
+
+    .nav-item{
+        /*padding-left: 1vw;
+        padding-right: 1vw;*/
+        margin-left: 1vw;
+        margin-right: 1vw;
+        font-weight: bold;
+    }
+
+    .nav-item:hover{
+        color: white;
+    }
+
+    input{
+    transition: box-shadow 250ms ease ;
+    }
+
+    input:focus:not([type=checkbox]),textarea:focus {
+        box-shadow: 0 0 0.3rem 0.2rem rgb(200 ,200, 200);
+        transition: box-shadow 250ms ease ;
+    }
+
+     input,textarea{
+        background-color: rgb(220, 220, 220);
+        font-weight: bold;
+        width: 70%;
+        transition: background-color 1000ms ease ;
+    }
+
+    input[type=checkbox]{
+        width: 8%;
+    }
+
+    input[type=submit]{
+        width: 20%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 3vh;
+        display: block;
+        transition: color 1000ms ease ;
+    }
+
+    textarea{
+        height: 15vh;
+        resize: none;
+    }
+
+    .imgLogoAbout {
+        width: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .paddingIconoFooter{
+        padding-left: 0.45vw;
+        padding-right: 0.45vw;
+    }
+
+.btnShowCalendar{
+    background-color: rgb(74, 83, 91);
+    border-color: rgb(74, 83, 91);
+    visibility: hidden;
+}
+
+.btnShowCalendar:hover{
+    background-color: #262626;
+    border-color: #262626;
+}
+
+.borde_blanco{
+    border-color: rgba(255,255,255,.55);
+&:hover{
+    background-color: rgba(255,255,255,.55);
+    color: #212529;
+}
+}
+
+
+.modal-login-body, .modal-login-footer, .modal-login-header{
+    background-color: rgb(192, 192, 192);
+/*    border-top: 0.5rem solid rgb(255, 255,255);
+    border-bottom: 0.5rem solid rgb(255, 255, 255);*/
+  /*  border-radius: calc(0.3rem - 1px);
+    border-top: 0.5rem solid rgb(192, 192, 192);
+    border-bottom: 0.5rem solid rgb(192, 192, 192);*/
+}
+
+.modal-body-login{
+    background-color: rgb(192, 192, 192);
+    border-top: 0.1rem solid rgb(255, 255,255);
+    border-bottom: 0.1rem solid rgb(255, 255, 255);
+  /*  border-radius: calc(0.3rem - 1px);
+    border-top: 0.5rem solid rgb(192, 192, 192);
+    border-bottom: 0.5rem solid rgb(192, 192, 192);*/
+}

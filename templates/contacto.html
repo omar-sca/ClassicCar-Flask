@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid bodyy">
+    <div class="row">
+        <div class="col-lg-6 col-sm-12">
+            <div class="divContacto">
+                <h5 class="primerParrafo">Complete el siguiente formulario y nuestros representantes se
+                    comunicarán con Usted:
+                </h5>
+                <form action="">
+                    <br>
+                    <input type="text" name="fname" id="nombre" placeholder="Nombre">
+                    <br>
+                    <br>
+                    <input type="text" name="lname" id="apellido" placeholder="Apellido">
+                    <br>
+                    <br>
+                    <input type="email" name="email" id="email" placeholder="Email" onblur="validarEmail()">
+                    <br>
+                    <br>
+                    <input type="text" name="codigoPostal" id="codigoPostal" placeholder="Código Postal"
+                        onkeypress="return isNumberKey(event)" maxlength="4">
+                    <br>
+                    <br>
+                    <input type="tel" name="celular" id="celular" placeholder="Teléfono"
+                        aria-describedby="ayudaValNumerico" onkeypress="return isNumberKey(event)">
+                    <br>
+                    <small id="ayudaValNumerico" class="form-text text-muted">
+                        Ingrese unicamente valores numericos.
+                    </small>
+                    <br>
+                    <br>
+                    <!--input type="text" name="comentario" id="comentario" placeholder="Comentario" -->
+                    <textarea name="comentario" id="comentario" rows="10" placeholder="Comentario"></textarea>
+                    <br>
+                    <script>
+                        function isNumberKey(evt) {
+                            var charCode = (evt.which) ? evt.which : evt.keyCode
+                            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                                return false;
+                            return true;
+                        }
+
+                        function validarEmail(){
+                            let elementoEmail = document.getElementById("email");
+                            let texto = document.getElementById("email").value;
+                            console.log(!texto.includes('@'));
+                            console.log(texto.includes('@'));
+                            console.log(texto.lastIndexOf('.') < texto.indexOf('@') );
+                            console.log(!texto.lastIndexOf('@') !== texto.indexOf('@'));
+                            if (!texto.includes('@') || texto.lastIndexOf('.') < texto.indexOf('@') || texto.lastIndexOf('@') !== texto.indexOf('@')  || texto[texto.indexOf('@')+1]=='.' || texto[texto.length-1]=='.' ) {
+                            elementoEmail.style.backgroundColor = "rgb(195,115,115)";
+                            document.getElementById("botonSubmit").disabled = true;
+                            document.getElementById("botonSubmit").style.color="rgb(137,130,130)";
+                            }
+                            else {
+                            elementoEmail.style.backgroundColor = "rgb(220, 220, 220)";
+                            document.getElementById("botonSubmit").disabled = false;
+                            document.getElementById("botonSubmit").style.color="rgb(0,0,0)";
+                            }
+                            if (texto == ""){
+                            elementoEmail.style.backgroundColor = "rgb(220, 220, 220)";
+                            document.getElementById("botonSubmit").disabled = false;
+                            document.getElementById("botonSubmit").style.color="rgb(0,0,0)";
+                            }
+                        }
+                    </script>
+
+                    <br>
+                    <br>
+                    <p>Modelo/s sobre el que desea consultar:</p>
+                    <div id="modelosParaFormularios">
+                        <script src="{{ url_for('static', filename='js/autos.js')}}"></script>
+                    </div>
+                    <br>
+                    <input type="submit" value="Enviar" id="botonSubmit">
+                    <br>
+                </form>
+                <br>
+            </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 ">
+            <div class="divContacto">
+                <h3 class="primerParrafo text-center">Showroom</h3>
+                <!--iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d210074.01183767707!2d-58.58393053263312!3d-34.644437255253315!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca440ec19097%3A0x30b34282ae8fae18!2sParque%20Rivadavia!5e0!3m2!1ses!2sar!4v1633318368854!5m2!1ses!2sar"
+                    width="80% " height="300rem" style="border:0;" allowfullscreen="" loading="lazy"></iframe-->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105067.26037643412!2d-58.49235903721268!3d-34.62054686372334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88e87!2sBuenos%20Aires%2C%20CABA!5e0!3m2!1ses!2sar!4v1634155551843!5m2!1ses!2sar"
+                    width="80%" height="300rem" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <p>
+                    <br>
+                    Dirección: PorAlgúnLado 999, CABA, Argentina.
+                    <br>
+                    Mail: classiccar@classiccar.com
+                    <br>
+                    Teléfono: 4999-9999
+                    <br>
+                    WhatsApp: 11-9999-9999
+                </p>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% macro render_field_form_login(campo) %}
+{% if campo.id != 'csrf_token'%}
+
+    {{ campo.label(**{'class': 'col-form-label'})|safe }}
+
+    {{ campo(**kwargs)|safe }}
+    {% if campo.errors %}
+    <ul class=errors>
+        {% for error in campo.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+
+{% endif %}
+
+{% endif %}
+{% endmacro %}

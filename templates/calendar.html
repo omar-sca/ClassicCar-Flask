@@ -1,0 +1,69 @@
+
+            <div class="modal-header modal-calendar-header">
+                <h5 class="modal-title modal-calendar-header-title">{{ modelo_consultado }}</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body modal-calendar-body">
+
+                <div class="calendar">
+
+                    <div class="calendar__picture">
+                        {#
+                        {% if btn_prev==True %}
+                        <button type="button" class="btn btn-secondary showCalendar" id="{{id}}"
+                                value="{{fecha.fechaAnt}}">&laquo;
+                        </button>
+                        {% endif %}
+                        #}
+                        <div><h4>{{fecha.nombreMes}} {{fecha.year}}</h4></div>
+                        {#
+                        <button type="button" class="btn btn-secondary showCalendar" id="{{id}}"
+                                value="{{fecha.fechaSig}}">&raquo;
+                        </button>
+                        #}
+                    </div>
+                    <div class="calendar__date">
+                        <div class="calendar__day">L</div>
+                        <div class="calendar__day">M</div>
+                        <div class="calendar__day">X</div>
+                        <div class="calendar__day">J</div>
+                        <div class="calendar__day">V</div>
+                        <div class="calendar__day">S</div>
+                        <div class="calendar__day">D</div>
+                        {% for e in range(0,fecha.desface1erdia)%}
+                        <div class="calendar__number"></div>
+                        {% endfor %}
+                        {% for e in range(1,fecha.nroUltDiaDelMes+1)%}
+                        {% set diaReservado = '' %}
+                        {% if e in dias_reservados %}
+                        {% set diaReservado = ' tachadoGrosor' %}
+                        {% else %}
+                        {% set diaReservado = '' %}
+                        {% endif %}
+
+                        {% if e == fecha.dia_hoy %}
+                        <div class="calendar__number calendar__number--current{{ diaReservado }}">{{e}}</div>
+                        {% else %}
+                        <div class="calendar__number{{ diaReservado }} ">{{e}}</div>
+                        {% endif %}
+                        {% endfor %}
+                        {#
+                        <div class="calendar__number tachadoSimple">18</div>
+                        <div class="calendar__number ondulado">18</div>
+                        <div class="calendar__number tachadoDoble">18</div>
+                        <div class="calendar__number tachadoGrosor">18</div>
+                        #}
+                    </div>
+
+                </div>
+                <p>Días en rojo: no disponibles para el modelo consultado</p>
+            </div>
+
+            {#
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            #}

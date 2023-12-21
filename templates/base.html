@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es-us">
+
+{% include 'head.html' %}
+
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top header ">
+        <div class="container-fluid">
+            <a href="{{ url_for('index') }}"> <img class="navbar-brand logo"
+                                                   src="{{url_for('static',filename='img/logo_slim_header.png')}}"
+                                                   alt="logo Classic Car"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"
+                    aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ms-auto">
+                    {% if "usuario" in session %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('usuarios') }}">Usuario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('autos') }}">Autos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('reservas') }}">Reservas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Usuario: {{ session.usuario }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-danger" href="{{ url_for('logout') }}">Salir</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('quienes_somos') }}">Quienes somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('contacto') }}">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-dark nav-link borde_blanco" data-bs-toggle="modal"
+                                data-bs-target="#modalIniciarSesion">Iniciar Sesión
+                        </button>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+{% block content %}
+{% endblock %}
+
+
+<div class="modal fade" id="modalIniciarSesion" tabindex="-1" aria-labelledby="modalIniciarSesion" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-login-header">
+                <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesión</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-login-body" id="modal-login-body">
+                {% include 'login.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+{% include 'footer.html' %}
+
+</html>
